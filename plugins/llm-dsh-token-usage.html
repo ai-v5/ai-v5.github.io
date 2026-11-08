@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Token Usage：DeepSeek Harness 侧边栏的本地 Token 面板，按 provider 实际 usage 统计，历史总量、365 天热力图、缓存与 tok/s 明细，只读本机日志。">
+  <meta name="color-scheme" content="light">
+  <title>Token Usage · AI V5 插件</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="AI V5 首页">
+        <span class="brand-mark" aria-hidden="true">V5</span>
+        <span class="brand-name">AI V5</span>
+      </a>
+      <a class="top-link" href="./">← 插件导航</a>
+    </header>
+
+    <main>
+      <p class="eyebrow">DSH PLUGIN · 用量观测</p>
+      <h1>Token Usage</h1>
+      <p class="lede">
+        在 DSH 桌面端 / Web 端侧边栏左下角加一个 <strong>Token 统计</strong>面板。
+        所有数字只来自本机 Session 日志，不访问外部服务、不上传、不改配置——会话归档或删除后，历史仍然在。
+      </p>
+
+      <ul class="chips">
+        <li class="chip">MIT</li>
+        <li class="chip">本地 · 只读 · 不上传</li>
+        <li class="chip">按 provider usage</li>
+        <li class="chip">不挑后端</li>
+      </ul>
+
+      <h2>亮点</h2>
+      <ul>
+        <li><strong>按实际用量</strong>：统计 provider 上报的 <code>usage</code>，不做字符数估算。</li>
+        <li><strong>不挑后端</strong>：DeepSeek、GLM、Kimi……只要 Session 里留下 provider usage 就统一计入，不绑定单一供应商。</li>
+        <li><strong>一眼看全</strong>：左下角常驻今日用量；面板第一行是全部历史总量，下面是 365 天 GitHub 风格热力图。</li>
+        <li><strong>明细够用</strong>：每天的总量、输入 + 输出、缓存读取、缓存写入和会话数。</li>
+        <li><strong>不只 token</strong>：全部历史的轮次、步骤和平均生成速度（tok/s）。</li>
+        <li><strong>安全可靠</strong>：账本用临时文件 + 原子替换写入，文件损坏时保留 <code>.corrupt-*</code> 备份。</li>
+      </ul>
+
+      <h2>安装</h2>
+      <p>要求 DSH Desktop / Web 已安装，且 profile 里已启用 <code>@deepseek-ai/dsh-base</code>。</p>
+      <pre><code># 从 GitHub 安装
+dsh plugin --profile desktop add github:ai-v5/LLMDSHPlugin_token-usage
+
+# 或从 npm 安装
+dsh plugin --profile desktop add llm-dsh-token-usage
+
+# 或从本地目录安装
+dsh plugin --profile desktop add D:\WORK\ai-v5\LLMDSHPlugin_token-usage</code></pre>
+      <p>
+        安装后重启 DSH Desktop，入口出现在左侧栏底部、Settings 上方。终端里没有 <code>dsh</code> 命令时，
+        用桌面版安装目录下的 <code>resources\runtime\runtime\cli\bin\dsh.cmd</code>（以实际安装布局为准）。
+        卸载：<code>dsh plugin --profile desktop remove llm-dsh-token-usage</code>。
+      </p>
+
+      <h2>关于「网络」能力标签</h2>
+      <p>插件市场会把带前端界面的插件扫出 <code>network</code> 标签。这里的 <code>network</code> 只来自浏览器端的一次同源请求：</p>
+      <pre><code>GET /api/llm-token-usage/stats</code></pre>
+      <p>
+        目标是<strong>本机 DSH Host 自己注册的路由</strong>，读取本机 Session 日志；不访问任何外部域名，不上传任何数据，
+        不含遥测、统计或授权检查。Host 端的 <code>fs-read</code> 用于读 Session 日志，<code>fs-write</code>
+        只写 <code>~/.dsh/token-usage-ledger.json</code> 这一个文件。
+      </p>
+
+      <h2>链接</h2>
+      <ul>
+        <li><a href="https://github.com/ai-v5/LLMDSHPlugin_token-usage">源码仓库</a> · <a href="https://www.npmjs.com/package/llm-dsh-token-usage">npm</a></li>
+        <li><a href="https://github.com/ai-v5/LLMDSHPlugin_token-usage/blob/main/LICENSE">MIT License</a></li>
+        <li>插件集合索引：<a href="https://github.com/ai-v5/LLMDSHPlugin">ai-v5/LLMDSHPlugin</a></li>
+      </ul>
+    </main>
+
+    <footer>
+      <span>AI V5 · DeepSeek Harness 插件</span>
+      <a href="https://github.com/ai-v5/LLMDSHPlugin_token-usage">GitHub <span aria-hidden="true">↗</span></a>
+    </footer>
+  </div>
+</body>
+</html>
