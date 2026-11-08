@@ -1,0 +1,100 @@
+{
+  "format": 1,
+  "title": { "en": "AI V5 · DeepSeek Harness plugins", "zh": "AI V5 · DeepSeek Harness 插件" },
+  "description": {
+    "en": "DeepSeek Harness bundles maintained by AI V5: keyless web search, a sidebar side chat, and a local token dashboard.",
+    "zh": "AI V5 维护的 DeepSeek Harness 组合包：免密钥联网检索、侧边栏旁聊、本地 Token 面板。"
+  },
+  "metadata": {
+    "categories": {
+      "search": { "title": { "en": "Search & retrieval", "zh": "检索与抓取" } },
+      "workflow": { "title": { "en": "Workflow", "zh": "工作流" } },
+      "observability": { "title": { "en": "Observability", "zh": "用量观测" } }
+    },
+    "labels": {
+      "ai-v5": { "title": { "en": "AI V5", "zh": "AI V5" } },
+      "local-first": { "title": { "en": "Local first", "zh": "本地优先" } }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-plugin-keyless-web",
+      "title": { "en": "Keyless Web Search & Fetch", "zh": "免密钥联网检索" },
+      "description": {
+        "en": "Replaces the harness web_search and web_fetch with keyless providers: Google rendered in a headless browser, DuckDuckGo, Bing and Google News merged in parallel.",
+        "zh": "用免密钥的实现替换 harness 的 web_search 与 web_fetch：无头浏览器读 Google 网页索引，DuckDuckGo / Bing / Google News 并发合并。"
+      },
+      "icon": "icons/keyless-web.svg",
+      "author": "AI V5",
+      "homepage": "https://ai-v5.github.io/plugins/keyless-web-mcp.html",
+      "repository": { "url": "https://github.com/ai-v5/keyless-web-mcp", "directory": "extras/dsh-provider" },
+      "metadata": { "category": "search", "labels": ["ai-v5"], "keywords": ["web-search", "web-fetch", "mcp", "google", "keyless"] },
+      "dist-tags": { "latest": "0.1.0" },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794117253,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/ai-v5/keyless-web-mcp",
+            "commit": "0af306ecc44fb1ac9a331fecb39649d4a16e1e10",
+            "path": "extras/dsh-provider"
+          },
+          "engines": { "dsh": ">=0.2.0" }
+        }
+      ]
+    },
+    {
+      "name": "dsh-plugin-aside",
+      "title": { "en": "Aside — side chat in the sidebar", "zh": "Aside 旁白 — 侧边栏旁聊" },
+      "description": {
+        "en": "Forks the current conversation into a right-sidebar tab with its own model, tools and composer, leaving the main thread untouched.",
+        "zh": "把当前对话分叉成右侧栏标签页，拥有自己的模型、工具与 composer，主线程完全不受影响。"
+      },
+      "icon": "icons/aside.svg",
+      "author": "AI V5",
+      "homepage": "https://ai-v5.github.io/plugins/dsh-plugin-aside.html",
+      "repository": { "url": "https://github.com/ai-v5/dsh-plugin-aside" },
+      "metadata": { "category": "workflow", "labels": ["ai-v5"], "keywords": ["side-chat", "fork", "sidebar"] },
+      "dist-tags": { "latest": "0.1.0" },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794116937,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/ai-v5/dsh-plugin-aside",
+            "commit": "32ca0c86b40343ad01849e8e6e157990b4b49eb3"
+          },
+          "engines": { "dsh": ">=0.2.0" }
+        }
+      ]
+    },
+    {
+      "name": "llm-dsh-token-usage",
+      "title": { "en": "Token Usage", "zh": "Token 用量面板" },
+      "description": {
+        "en": "Local-only, read-only token dashboard: provider-reported usage across every backend, all-time totals, a 365-day heatmap and cache details.",
+        "zh": "仅本地、只读的 Token 面板：按 provider 上报的 usage 统计所有后端，含历史总量、365 天热力图与缓存明细。"
+      },
+      "icon": "icons/token-usage.svg",
+      "author": "AI V5",
+      "homepage": "https://ai-v5.github.io/plugins/llm-dsh-token-usage.html",
+      "repository": { "url": "https://github.com/ai-v5/LLMDSHPlugin_token-usage" },
+      "metadata": { "category": "observability", "labels": ["ai-v5", "local-first"], "keywords": ["token-usage", "dashboard", "usage"] },
+      "dist-tags": { "latest": "0.1.3" },
+      "versions": [
+        {
+          "version": "0.1.3",
+          "publishTimestamp": 1792584668,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/ai-v5/LLMDSHPlugin_token-usage",
+            "commit": "3caf1382d22fd1139b4b50b250580a4d5739b252"
+          },
+          "engines": { "dsh": ">=0.2.0" }
+        }
+      ]
+    }
+  ]
+}

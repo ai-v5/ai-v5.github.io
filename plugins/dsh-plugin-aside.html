@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aside（旁白）：DeepSeek Harness 右侧栏的分叉旁聊，独立模型与工具，主线程不受影响，刷新和重启后仍然保留。">
+  <meta name="color-scheme" content="light">
+  <title>Aside（旁白）· AI V5 插件</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="AI V5 首页">
+        <span class="brand-mark" aria-hidden="true">V5</span>
+        <span class="brand-name">AI V5</span>
+      </a>
+      <a class="top-link" href="./">← 插件导航</a>
+    </header>
+
+    <main>
+      <p class="eyebrow">DSH PLUGIN · 侧边栏工作流</p>
+      <h1>Aside（旁白）</h1>
+      <p class="lede">
+        在右侧栏里开一个<strong>真正分叉</strong>的旁聊：从当前对话分出一支，就在终端标签旁边，
+        你可以继续问、继续改，而主线程一个字都不会被写进去。
+      </p>
+
+      <ul class="chips">
+        <li class="chip">AGPL-3.0-or-later</li>
+        <li class="chip">DSH ≥ 0.2.1-rc.5</li>
+        <li class="chip">侧边栏标签页</li>
+        <li class="chip">真正的 fork 会话</li>
+      </ul>
+
+      <h2>它解决什么问题</h2>
+      <p>
+        编码过程中经常有「顺手再问一句」的需求：这段报错要不要改？换个思路行不行？但如果直接在主线里问，
+        追问会污染上下文，模型的下一步动作也会被带偏。旁聊把这条支线挪进侧边栏：它有自己的历史、
+        自己的模型、自己的工具和 composer，主线程保持原样。
+      </p>
+
+      <h2>你会得到</h2>
+      <ul>
+        <li><strong>新建旁聊</strong>：右侧栏起始页多一张卡片，就在「新建终端」上方，点击即把当前对话 fork 成新标签页。</li>
+        <li><strong>真的分叉，不是复制粘贴</strong>：新标签是一个真实子会话，历史从主线程复制到最后一个完成的轮次。</li>
+        <li><strong>随便聊</strong>：提问、纠正、打断都不会回到主线程；主线程下一轮不受任何影响。</li>
+        <li><strong>活得比这次会话久</strong>：标签页随侧边栏布局一起保存，刷新、重启后仍在那儿。</li>
+        <li><strong>像终端一样停靠</strong>：可停靠、分屏、浮动、全屏，行为与终端标签一致。</li>
+      </ul>
+
+      <h2>安装</h2>
+      <pre><code># 从本地 checkout 安装到你的 profile（README 用 web，桌面端换成 desktop）
+dsh plugin --profile web add C:\path\to\dsh-plugin-aside
+
+# 或者直接从 GitHub
+dsh plugin --profile desktop add github:ai-v5/dsh-plugin-aside</code></pre>
+      <p>装完重启 DSH Desktop —— 替换进去的包需要新一代 JavaScript generation 才会生效，刷新浏览器不够。</p>
+
+      <div class="callout">
+        <p>
+          依赖 DSH <code>&gt;= 0.2.1-rc.5</code>（暴露 <code>ctx.sessions.fork</code> 的那个版本）。
+          本地目录安装是 <code>link:</code> 依赖，改了插件源码之后同样要重启 DSH 才会生效。
+        </p>
+      </div>
+
+      <h2>链接</h2>
+      <ul>
+        <li><a href="https://github.com/ai-v5/dsh-plugin-aside">源码仓库</a> · <a href="https://github.com/ai-v5/dsh-plugin-aside/blob/main/README.zh.md">中文 README</a></li>
+        <li><a href="https://github.com/ai-v5/dsh-plugin-aside/blob/main/LICENSE">AGPL-3.0-or-later</a></li>
+      </ul>
+    </main>
+
+    <footer>
+      <span>AI V5 · DeepSeek Harness 插件</span>
+      <a href="https://github.com/ai-v5/dsh-plugin-aside">GitHub <span aria-hidden="true">↗</span></a>
+    </footer>
+  </div>
+</body>
+</html>

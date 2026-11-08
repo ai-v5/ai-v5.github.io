@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI V5 的 DeepSeek Harness（dsh）插件导航：免密钥联网检索、右侧旁聊、本地 Token 面板。">
+  <meta name="color-scheme" content="light">
+  <title>DeepSeek Harness 插件 · AI V5</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="AI V5 首页">
+        <span class="brand-mark" aria-hidden="true">V5</span>
+        <span class="brand-name">AI V5</span>
+      </a>
+      <a class="top-link" href="../">← 项目导航</a>
+    </header>
+
+    <main>
+      <p class="eyebrow">AI V5 / DSH PLUGINS</p>
+      <h1>DeepSeek Harness 插件<span style="color:#5d8bc7">.</span></h1>
+      <p class="lede">
+        AI V5 为 <a href="https://github.com/deepseek-ai/deepseek-harness">DeepSeek Harness</a>（dsh）做的插件，
+        都是 <code>dsh.bundle</code> 组合包，安装后直接改写 harness 的原生能力，而不是在旁边再起一套工具。
+      </p>
+
+      <div class="grid">
+        <a class="card" href="keyless-web-mcp.html">
+          <div class="card-top"><span class="category">SEARCH · 联网检索</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h3>keyless-web-mcp</h3>
+          <p>免 API key 的搜索与正文抓取。无头浏览器读 Google 网页索引，DuckDuckGo / Bing / Google News 并发汇总，DSH 里直接替换 <code>web_search</code> 与 <code>web_fetch</code>。</p>
+          <span class="card-path">/ plugins / keyless-web-mcp · MIT</span>
+        </a>
+        <a class="card" href="dsh-plugin-aside.html">
+          <div class="card-top"><span class="category">WORKFLOW · 侧边栏旁聊</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h3>Aside（旁白）</h3>
+          <p>右侧栏里的分叉会话：把当前对话 fork 出一个标签页，独立模型与工具，主线程一个字都不会被污染，刷新和重启后还在。</p>
+          <span class="card-path">/ plugins / dsh-plugin-aside · AGPL-3.0</span>
+        </a>
+        <a class="card" href="llm-dsh-token-usage.html">
+          <div class="card-top"><span class="category">OBSERVABILITY · 用量统计</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h3>Token Usage</h3>
+          <p>侧边栏左下角的本地 Token 面板：按 provider 上报的 usage 统计，历史总量、365 天热力图、输入输出与 tok/s，只读本机日志。</p>
+          <span class="card-path">/ plugins / llm-dsh-token-usage · MIT</span>
+        </a>
+        <a class="card" href="../market/index.json">
+          <div class="card-top"><span class="category">MARKET · 插件索引</span><span class="arrow" aria-hidden="true">↗</span></div>
+          <h3>插件索引（format 1）</h3>
+          <p>把本页的插件做成 DSH 插件市场的索引文件。在 <strong>插件 → 发现 → 索引源</strong> 里填下面这个地址即可浏览安装。</p>
+          <span class="card-path">/ market / index.json</span>
+        </a>
+      </div>
+
+      <h2 id="install">怎么安装</h2>
+      <p>DSH 0.2.x 自带插件管理命令，装上之后重启 DSH：</p>
+      <pre><code># Token 使用面板（npm / GitHub 均可）
+dsh plugin --profile desktop add github:ai-v5/LLMDSHPlugin_token-usage
+
+# 旁白（本地 checkout）
+dsh plugin --profile desktop add C:\path\to\dsh-plugin-aside
+
+# 免密钥检索：先在插件市场索引里看到它，或直接链接本地 checkout
+dsh plugin --profile desktop add github:ai-v5/keyless-web-mcp</code></pre>
+      <p>
+        终端里没有 <code>dsh</code> 命令时，用桌面版安装目录下的
+        <code>resources\runtime\cli\bin\dsh.cmd</code>。装完必须重启桌面端——模块需要新一代
+        JavaScript generation 才会生效，刷新浏览器不够。
+      </p>
+
+      <h2 id="market">插件市场</h2>
+      <p>
+        在 <strong>插件 → 实验性插件</strong> 打开 <strong>自定义插件索引</strong>，然后在
+        <strong>发现 → 添加索引源</strong> 里填：
+      </p>
+      <pre><code>https://ai-v5.github.io/market/index.json</code></pre>
+      <p>
+        这是 format 1 的索引文件，与 <code>awesome-dsh-plugin</code> 用的是同一套格式。索引里只有 AI V5
+        自己维护的插件；社区的完整列表见
+        <a href="https://awesome-dsh-plugin.com">awesome-dsh-plugin</a>。
+      </p>
+    </main>
+
+    <footer>
+      <span>AI V5 · DeepSeek Harness 插件</span>
+      <a href="https://github.com/ai-v5">GitHub <span aria-hidden="true">↗</span></a>
+    </footer>
+  </div>
+</body>
+</html>
