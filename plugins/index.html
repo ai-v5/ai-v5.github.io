@@ -61,8 +61,13 @@ dsh plugin --profile desktop add github:ai-v5/LLMDSHPlugin_token-usage
 # 旁白（本地 checkout）
 dsh plugin --profile desktop add C:\path\to\dsh-plugin-aside
 
-# 免密钥检索：先在插件市场索引里看到它，或直接链接本地 checkout
-dsh plugin --profile desktop add github:ai-v5/keyless-web-mcp</code></pre>
+# 免密钥检索：组合包是仓库里的 extras/dsh-provider，不是仓库根目录
+dsh plugin --profile desktop add D:\path\to\keyless-web-mcp\extras\dsh-provider</code></pre>
+      <p>
+        <code>keyless-web-mcp</code> 的仓库根是一个 Python 项目，DSH 组合包在
+        <code>extras/dsh-provider/</code> 里（包名 <code>dsh-plugin-keyless-web</code>）。
+        所以它走下面的市场索引安装最省事，或者像上面这样直接指向那个目录。
+      </p>
       <p>
         终端里没有 <code>dsh</code> 命令时，用桌面版安装目录下的
         <code>resources\runtime\cli\bin\dsh.cmd</code>。装完必须重启桌面端——模块需要新一代
