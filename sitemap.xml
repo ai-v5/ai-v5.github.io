@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ai-v5.github.io/</loc>
+  </url>
+  <url>
+    <loc>https://ai-v5.github.io/plugins/</loc>
+  </url>
+  <url>
+    <loc>https://ai-v5.github.io/plugins/keyless-web-mcp.html</loc>
+  </url>
+  <url>
+    <loc>https://ai-v5.github.io/plugins/dsh-plugin-aside.html</loc>
+  </url>
+  <url>
+    <loc>https://ai-v5.github.io/plugins/llm-dsh-token-usage.html</loc>
+  </url>
+</urlset>
